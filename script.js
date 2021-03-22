@@ -14,7 +14,7 @@ let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
 let numericConf = ""; 
-let specialConf = ""; 
+let specialConf = "";
 
 // Global Event Listeners
 generateBtn.addEventListener("click", characterLength); 
@@ -36,13 +36,12 @@ function characterLength() {
 };
 
 function characterChoice() {
-    lowerConf = confirm("Do you want to include lowercase characters?");
-    upperConf = confirm("Do you want to include uppercase characters?");
-    numericConf = confirm("Do you want to include numeric characters?");
-    specialConf = confirm("Do you want to include special characters?");
+  upperConf = confirm("Do you want to include uppercase characters?");
+  numericConf = confirm("Do you want to include numeric characters?");
+  specialConf = confirm("Do you want to include special characters?");
 
     if (upperConf && numericConf  && specialConf) {
-      return combineAll;
+      return combineAll.join('');
     } else if (upperConf && numericConf && !specialConf) {
       return combineUpperNumeric;
     } else if (upperConf && !numericConf && !specialConf) {
@@ -62,13 +61,26 @@ function characterChoice() {
 
 // Combine characterLength and gcharacterChoice Functions
 function generatePassword() {
-  characterLength();
-  characterChoice();
-}
+  let a = characterLength();
+  let b = characterChoice();
+  let passwordNew = "";
+ 
+  for(let i=0; i<b.length; i++) {
+	
+   //Taking Input from user
+   passwordNew = b.charAt(Math.floor(Math.random() * b.length));
+
+ /*passwordNew = [].concat(a, b).sort(() => Math.random() - 0.5);*/
+
+  console.log(passwordNew)
+  return passwordNew;
+  }
+
+};
   
 // Write password to the #password input
 function writePassword() {
-    let password = characterChoice();
+    let password = generatePassword();
     let passwordText = document.querySelector("#password");
     passwordText.value = password;
 };
