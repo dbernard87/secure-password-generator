@@ -4,12 +4,12 @@ let lowerCharacter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
 let numericCharacter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let specialCharacter = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 let generateBtn = document.querySelector("#generate");
-let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
-let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter);
-let combineUpper = lowerCharacter.concat(upperCharacter);
-let combineNumeric = lowerCharacter.concat(numericCharacter);
-let combineSpecial = lowerCharacter.concat(specialCharacter);
-let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter); 
+let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter).join('');
+let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter).join('');
+let combineUpper = lowerCharacter.concat(upperCharacter).join('');
+let combineNumeric = lowerCharacter.concat(numericCharacter).join('');
+let combineSpecial = lowerCharacter.concat(specialCharacter).join('');
+let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter).join(''); 
 let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
@@ -41,7 +41,7 @@ function characterChoice() {
   specialConf = confirm("Do you want to include special characters?");
 
     if (upperConf && numericConf  && specialConf) {
-      return combineAll.join('');
+      return combineAll;
     } else if (upperConf && numericConf && !specialConf) {
       return combineUpperNumeric;
     } else if (upperConf && !numericConf && !specialConf) {
@@ -61,7 +61,7 @@ function characterChoice() {
 
 // Combine characterLength and gcharacterChoice Functions
 function generatePassword() {
-  let a = characterLength();
+  let a = countMessage;
   let b = characterChoice();
   let passwordNew = "";
  
