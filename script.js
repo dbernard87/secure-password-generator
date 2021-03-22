@@ -34,6 +34,10 @@ function characterLength() {
       return countMessage;
 };
 
+function convertCharacterLength() {
+  
+}
+
 function generatePassword() {
     lowerConf = confirm("Do you want to include lowercase characters?");
     upperConf = confirm("Do you want to include uppercase characters?");
@@ -76,7 +80,7 @@ function generatePassword() {
   
 // Write password to the #password input
 function writePassword() {
-    let password = generatePassword();
+    let password = generatePassword(Math.floor(5));
     let passwordText = document.querySelector("#password");
     passwordText.value = password;
 };
