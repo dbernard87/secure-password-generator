@@ -10,18 +10,19 @@ let combineUpper = lowerCharacter.concat(upperCharacter);
 let combineNumeric = lowerCharacter.concat(numericCharacter);
 let combineSpecial = lowerCharacter.concat(specialCharacter);
 let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter); 
+let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
 let numericConf = ""; 
 let specialConf = ""; 
 
 // Global Event Listeners
-generateBtn.addEventListener("click", writePassword); 
 generateBtn.addEventListener("click", characterLength); 
+generateBtn.addEventListener("click", writePassword); 
 
 // Character Amount Function
 function characterLength() {
-    let countMessage = prompt("Choose amount of characters between 8 and 128");
+  countMessage = prompt("Choose amount of characters between 8 and 128");
     
     if (countMessage < 8) {
         alert("Must have at least 8 characters");
@@ -34,11 +35,7 @@ function characterLength() {
       return countMessage;
 };
 
-function convertCharacterLength() {
-  
-}
-
-function generatePassword() {
+function characterChoice() {
     lowerConf = confirm("Do you want to include lowercase characters?");
     upperConf = confirm("Do you want to include uppercase characters?");
     numericConf = confirm("Do you want to include numeric characters?");
@@ -46,41 +43,32 @@ function generatePassword() {
 
     if (upperConf && numericConf  && specialConf) {
       return combineAll;
-    }
-  
-    else if (upperConf && numericConf && !specialConf) {
+    } else if (upperConf && numericConf && !specialConf) {
       return combineUpperNumeric;
-    }
-  
-    else if (upperConf && !numericConf && !specialConf) {
+    } else if (upperConf && !numericConf && !specialConf) {
       return combineUpper;
-    }
-  
-    else if (!upperConf && !numericConf && !specialConf) {
+    } else if (!upperConf && !numericConf && !specialConf) {
       return lowerCharacter;
-    }
-  
-    else if (!upperConf && !numericConf && specialConf) {
+    } else if (!upperConf && !numericConf && specialConf) {
       return combineSpecial;
-    }
-  
-    else if (!upperConf && numericConf && specialConf) {
+    } else if (!upperConf && numericConf && specialConf) {
       return combineNumericSpecial;
-    }
-  
-    else if (upperConf && numericConf && !specialConf) {
+    } else if (upperConf && numericConf && !specialConf) {
       return combineUpperNumeric;
-    }
-
-    else { (!upperConf && numericConf && !specialConf);
+    } else { (!upperConf && numericConf && !specialConf);
       return combineNumeric;
     }
-
 };
+
+// Combine characterLength and gcharacterChoice Functions
+function generatePassword() {
+  characterLength();
+  characterChoice();
+}
   
 // Write password to the #password input
 function writePassword() {
-    let password = generatePassword(Math.floor(5));
+    let password = characterChoice();
     let passwordText = document.querySelector("#password");
     passwordText.value = password;
 };
