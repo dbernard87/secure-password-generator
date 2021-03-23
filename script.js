@@ -1,4 +1,3 @@
-
 // Global Variables
 let generateBtn = document.querySelector("#generate");
 let lowerCharacter = "abcdefghijklmnopqrstuvwxyz";
@@ -36,7 +35,7 @@ function characterChoice() {
   upperConf = confirm("Do you want to include uppercase characters?");
   numericConf = confirm("Do you want to include numeric characters?");
   specialConf = confirm("Do you want to include special characters?");
-  // Concatenated character strings for if else loop
+  // Concatenated character strings for if else statement
   let numericSpecial = numericCharacter.concat(specialCharacter);  
   let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
   let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter);
