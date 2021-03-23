@@ -91,10 +91,10 @@ function characterChoice() {
       alert("Special characters selected.");
       return specialCharacter;
     } else if (!lowerConf && upperConf && !numericConf && specialConf) {
-      alert("Special characters selected.");
+      alert("Special and uppercase characters selected.");
       return upperSpecial;
     } else if (lowerConf && upperConf && !numericConf && specialConf) {
-      alert("Special characters selected.");
+      alert("Lowercase, uppercase, and special characters selected.");
       return combineUpperSpecial;
     }
 };
