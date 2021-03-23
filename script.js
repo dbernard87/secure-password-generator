@@ -9,7 +9,14 @@ let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter
 let combineUpper = lowerCharacter.concat(upperCharacter).join('');
 let combineNumeric = lowerCharacter.concat(numericCharacter).join('');
 let combineSpecial = lowerCharacter.concat(specialCharacter).join('');
-let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter).join(''); 
+let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter).join('');
+let upperNumeric = upperCharacter.concat(numericCharacter).join('');
+let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter).join('');
+let upper = upperCharacter.join('');
+let lower = lowerCharacter.join('');
+let numeric = numericCharacter.join('');
+let special = specialCharacter.join('');
+let numericSpecial = numericCharacter.concat(specialCharacter).join('');  
 let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
@@ -22,12 +29,12 @@ generateBtn.addEventListener("click", writePassword);
 
 // characterLength Function
 function characterLength() {
-  countMessage = prompt("Choose amount of characters between 8 and 128");
+  countMessage = prompt("Choose amount of characters between 8 and 128.");
     if (countMessage < 8) {
-        alert("Must have at least 8 characters");
+        alert("Must have at least 8 characters.");
         characterLength();
       } else if (countMessage > 128) {
-        alert("Must have no more than 128 characters");
+        alert("Must have no more than 128 characters.");
         characterLength();
       }
       return countMessage;
@@ -35,25 +42,39 @@ function characterLength() {
 
 // characterChoice Function 
 function characterChoice() {
+  lowerConf = confirm("Do you want to include lowercase characters?");
   upperConf = confirm("Do you want to include uppercase characters?");
   numericConf = confirm("Do you want to include numeric characters?");
   specialConf = confirm("Do you want to include special characters?");
-    if (upperConf && numericConf  && specialConf) {
+  
+    if (lowerConf && upperConf && numericConf  && specialConf) {
       return combineAll;
-    } else if (upperConf && numericConf && !specialConf) {
+    } else if (lowerConf && upperConf && numericConf && !specialConf) {
       return combineUpperNumeric;
-    } else if (upperConf && !numericConf && !specialConf) {
+    } else if (lowerConf && upperConf && !numericConf && !specialConf) {
       return combineUpper;
-    } else if (!upperConf && !numericConf && !specialConf) {
-      return lowerCharacter;
-    } else if (!upperConf && !numericConf && specialConf) {
+    } else if (lowerConf && !upperConf && !numericConf && !specialConf) {
+      return lower;
+    } else if (lowerConf && !upperConf && !numericConf && specialConf) {
       return combineSpecial;
-    } else if (!upperConf && numericConf && specialConf) {
+    } else if (lowerConf && !upperConf && numericConf && specialConf) {
       return combineNumericSpecial;
-    } else if (upperConf && numericConf && !specialConf) {
-      return combineUpperNumeric;
-    } else { (!upperConf && numericConf && !specialConf);
+    } else if (lowerConf && !upperConf && numericConf && !specialConf) {
       return combineNumeric;
+    } else if (!lowerConf && upperConf && numericConf && !specialConf) {
+      return upperNumeric;
+    } else if (!lowerConf && upperConf && !numericConf && !specialConf) {
+      return upper;
+    } else if (!lowerConf && !upperConf && !numericConf && specialConf) {
+      return special;
+    } else if (!lowerConf && !upperConf && numericConf && specialConf) {
+      return numericSpecial;
+    } else if (!lowerConf && !upperConf && numericConf && !specialConf) {
+      return numeric;  
+    } else if (!lowerConf && upperConf && numericConf && specialConf) {
+      return upperNumericSpecial; 
+    } else { (!lowerConf && !upperConf && !numericConf && !specialConf) 
+      return;
     }
 };
 
