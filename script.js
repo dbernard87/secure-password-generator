@@ -2,8 +2,8 @@
 let generateBtn = document.querySelector("#generate");
 let lowerCharacter = "abcdefghijklmnopqrstuvwxyz";
 let upperCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let numericCharacter = "0123456789"
-let specialCharacter = "!#$%&()*+-.,/:;<=>?@[]^_`{|}~]"
+let numericCharacter = "0123456789";
+let specialCharacter = "!#$%&()*+-.,/:;<=>?@[]^_`{|}~]";
 let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
@@ -26,7 +26,7 @@ function characterLength() {
         characterLength();
       }
       return countMessage;
-};
+}
 
 // characterChoice Function
 function characterChoice() {
@@ -97,7 +97,7 @@ function characterChoice() {
       alert("Lowercase, uppercase, and special characters selected.");
       return combineUpperSpecial;
     }
-};
+}
 
 // Combine characterLength and characterChoice Functions
 function generatePassword() {
@@ -109,11 +109,11 @@ function generatePassword() {
    passwordNew = passwordNew + b.charAt(Math.floor(Math.random() * b.length));
   }
   return passwordNew;
-};
+}
   
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
   passwordText.value = password;
-};
+}
