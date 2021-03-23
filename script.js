@@ -4,17 +4,6 @@ let upperCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"
 let numericCharacter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].join('');
 let specialCharacter = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'].join('');
 let generateBtn = document.querySelector("#generate");
-let numericSpecial = numericCharacter.concat(specialCharacter);  
-let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
-let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter);
-let combineUpper = lowerCharacter.concat(upperCharacter);
-let combineUpperSpecial = lowerCharacter.concat(upperCharacter, specialCharacter);
-let combineNumeric = lowerCharacter.concat(numericCharacter);
-let combineSpecial = lowerCharacter.concat(specialCharacter);
-let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter);
-let upperNumeric = upperCharacter.concat(numericCharacter);
-let upperSpecial = upperCharacter.concat(specialCharacter);
-let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter);
 let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
@@ -45,6 +34,17 @@ function characterChoice() {
   upperConf = confirm("Do you want to include uppercase characters?");
   numericConf = confirm("Do you want to include numeric characters?");
   specialConf = confirm("Do you want to include special characters?");
+  let numericSpecial = numericCharacter.concat(specialCharacter);  
+  let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
+  let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter);
+  let combineUpper = lowerCharacter.concat(upperCharacter);
+  let combineUpperSpecial = lowerCharacter.concat(upperCharacter, specialCharacter);
+  let combineNumeric = lowerCharacter.concat(numericCharacter);
+  let combineSpecial = lowerCharacter.concat(specialCharacter);
+  let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter);
+  let upperNumeric = upperCharacter.concat(numericCharacter);
+  let upperSpecial = upperCharacter.concat(specialCharacter);
+  let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter);
   
       if (lowerConf && upperConf && numericConf && !specialConf) {
       return combineUpperNumeric + alert("Lowercase, uppercase, and numeric characters seleced.");
