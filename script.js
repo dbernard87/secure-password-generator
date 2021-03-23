@@ -22,6 +22,7 @@ let lowerConf = "";
 let upperConf = "";
 let numericConf = ""; 
 let specialConf = "";
+let noCharacter = "";
 
 // Global Event Listeners
 generateBtn.addEventListener("click", characterLength); 
@@ -48,33 +49,33 @@ function characterChoice() {
   specialConf = confirm("Do you want to include special characters?");
   
     if (lowerConf && upperConf && numericConf  && specialConf) {
-      return combineAll;
+      return combineAll + alert("All characters selected.");
     } else if (lowerConf && upperConf && numericConf && !specialConf) {
-      return combineUpperNumeric;
+      return combineUpperNumeric + alert("Lowercase, uppercase, and numeric characters seleced.");
     } else if (lowerConf && upperConf && !numericConf && !specialConf) {
-      return combineUpper;
+      return combineUpper + alert("Lowercase and uppercase characters selected.");
     } else if (lowerConf && !upperConf && !numericConf && !specialConf) {
-      return lower;
+      return lower + alert("Lowercase characters selected.");
     } else if (lowerConf && !upperConf && !numericConf && specialConf) {
-      return combineSpecial;
+      return combineSpecial + alert("Lowercase and special characters selected.");
     } else if (lowerConf && !upperConf && numericConf && specialConf) {
-      return combineNumericSpecial;
+      return combineNumericSpecial + alert("Lowercase, numeric, and special characters selected.");
     } else if (lowerConf && !upperConf && numericConf && !specialConf) {
-      return combineNumeric;
+      return combineNumeric + alert("Lowercase and numeric characters selected.");
     } else if (!lowerConf && upperConf && numericConf && !specialConf) {
-      return upperNumeric;
+      return upperNumeric + alert("Uppercase and numeric characters selected.");
     } else if (!lowerConf && upperConf && !numericConf && !specialConf) {
-      return upper;
+      return upper + alert("Uppercase characters selected.");
     } else if (!lowerConf && !upperConf && !numericConf && specialConf) {
-      return special;
+      return special + alert("Special characters selected.");
     } else if (!lowerConf && !upperConf && numericConf && specialConf) {
-      return numericSpecial;
+      return numericSpecial + alert("Numeric and special characters selected.");
     } else if (!lowerConf && !upperConf && numericConf && !specialConf) {
-      return numeric;  
+      return numeric + alert("Numeric characters selected.");  
     } else if (!lowerConf && upperConf && numericConf && specialConf) {
-      return upperNumericSpecial; 
+      return upperNumericSpecial + alert("Uppercase, numeric, and special characters selected."); 
     } else { (!lowerConf && !upperConf && !numericConf && !specialConf) 
-      return;
+       return noCharacter + alert("Must select at least one group of characters.");
     }
 };
 
