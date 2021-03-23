@@ -1,9 +1,9 @@
 // Global Variables
+let generateBtn = document.querySelector("#generate");
 let lowerCharacter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"].join('');
 let upperCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"].join('');
 let numericCharacter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].join('');
 let specialCharacter = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'].join('');
-let generateBtn = document.querySelector("#generate");
 let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
@@ -28,7 +28,7 @@ function characterLength() {
       return countMessage;
 };
 
-// characterChoice Function 
+// characterChoice Function
 function characterChoice() {
   lowerConf = confirm("Do you want to include lowercase characters?");
   upperConf = confirm("Do you want to include uppercase characters?");
@@ -85,7 +85,7 @@ function characterChoice() {
 function generatePassword() {
   let a = countMessage;
   let b = characterChoice();
-  let passwordNew = "";
+  let passwordNew = [];
  
   for(let i=0; i<a; i++) {
    passwordNew = passwordNew + b.charAt(Math.floor(Math.random() * b.length));
