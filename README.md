@@ -8,7 +8,7 @@ This is a secure password generator built with HTML, CSS, and Javascript. The ge
 
 ## Usage
 
-To use the generator click the "Generate Password" button, which will prompt you to choose your desired password length and combination of characters. You must select a minimum of 8 characters and no more than 128. You will be prompted with four choices of characters to include, lowercase, uppercase, numeric, and special. You can choose as little as one set of characters or as many as four. The longer you make your password, and the more characters you choose the more secure your password will be. Once you are finished, the generator will display your secure password in the text area where you can copy it. [https://dbernard87.github.io/secure-password-generator/]
+To use the generator click the "Generate Password" button, which will prompt you to choose your desired password length and combination of characters. You must select a minimum of 8 characters and no more than 128. You will be prompted with four choices of characters to include, lowercase, uppercase, numeric, and special. You can choose as little as one set of characters or as many as four. The longer you make your password, and the more characters you choose, the more secure your password will be. Once you are finished, the generator will display your secure password in the text area where you can copy it. [https://dbernard87.github.io/secure-password-generator/]
 
 ![image of Secure Password Generator website homepage](assets/images/screenshot.png)
 
