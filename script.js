@@ -8,10 +8,12 @@ let numericSpecial = numericCharacter.concat(specialCharacter);
 let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
 let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter);
 let combineUpper = lowerCharacter.concat(upperCharacter);
+let combineUpperSpecial = lowerCharacter.concat(upperCharacter, specialCharacter);
 let combineNumeric = lowerCharacter.concat(numericCharacter);
 let combineSpecial = lowerCharacter.concat(specialCharacter);
 let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter);
 let upperNumeric = upperCharacter.concat(numericCharacter);
+let upperSpecial = upperCharacter.concat(specialCharacter);
 let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter);
 let countMessage = "";
 let lowerConf = ""; 
@@ -72,6 +74,10 @@ function characterChoice() {
       return numericCharacter + alert("Numeric characters selected."); 
     } else if (!lowerConf && !upperConf && !numericConf && specialConf) {
       return specialCharacter + alert("Special characters selected.");
+    } else if (!lowerConf && upperConf && !numericConf && specialConf) {
+      return upperSpecial + alert("Special characters selected.");
+    } else if (lowerConf && upperConf && !numericConf && specialConf) {
+      return combineUpperSpecial + alert("Special characters selected.");
     }
 };
 
