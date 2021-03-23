@@ -16,7 +16,7 @@ let noCharacter = "";
 generateBtn.addEventListener("click", characterLength); 
 generateBtn.addEventListener("click", writePassword); 
 
-// characterLength Function
+// characterLength Function to choose length of password
 function characterLength() {
   countMessage = prompt("Choose amount of characters between 8 and 128.");
     if (countMessage < 8) {
@@ -31,10 +31,12 @@ function characterLength() {
 
 // characterChoice Function
 function characterChoice() {
+  // Character prompt questions
   lowerConf = confirm("Do you want to include lowercase characters?");
   upperConf = confirm("Do you want to include uppercase characters?");
   numericConf = confirm("Do you want to include numeric characters?");
   specialConf = confirm("Do you want to include special characters?");
+  // Concatenated character strings for if else loop
   let numericSpecial = numericCharacter.concat(specialCharacter);  
   let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
   let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter);
@@ -46,7 +48,7 @@ function characterChoice() {
   let upperNumeric = upperCharacter.concat(numericCharacter);
   let upperSpecial = upperCharacter.concat(specialCharacter);
   let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter);
-  
+      // If else loop to determine which character variable to choose
       if (lowerConf && upperConf && numericConf && !specialConf) {
       alert("Lowercase, uppercase, and numeric characters seleced.");
       return combineUpperNumeric;
@@ -103,7 +105,7 @@ function generatePassword() {
   let a = countMessage;
   let b = characterChoice();
   let passwordNew = "";
- 
+  // For loop to make string length equal to user input
   for(let i=0; i<a; i++) {
    passwordNew = passwordNew + b.charAt(Math.floor(Math.random() * b.length));
   }
