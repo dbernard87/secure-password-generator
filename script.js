@@ -47,7 +47,7 @@ function characterChoice() {
   let upperNumeric = upperCharacter.concat(numericCharacter);
   let upperSpecial = upperCharacter.concat(specialCharacter);
   let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter);
-      // If else loop to determine which character variable to choose
+      // If else statement to determine which character variable to choose
       if (lowerConf && upperConf && numericConf && !specialConf) {
       alert("Lowercase, uppercase, and numeric characters seleced.");
       return combineUpperNumeric;
