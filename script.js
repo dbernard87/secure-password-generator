@@ -20,26 +20,24 @@ let specialConf = "";
 generateBtn.addEventListener("click", characterLength); 
 generateBtn.addEventListener("click", writePassword); 
 
-// Character Amount Function
+// characterLength Function
 function characterLength() {
   countMessage = prompt("Choose amount of characters between 8 and 128");
-    
     if (countMessage < 8) {
         alert("Must have at least 8 characters");
         characterLength();
       } else if (countMessage > 128) {
         alert("Must have no more than 128 characters");
         characterLength();
-      } 
-
+      }
       return countMessage;
 };
 
+// characterChoice Function 
 function characterChoice() {
   upperConf = confirm("Do you want to include uppercase characters?");
   numericConf = confirm("Do you want to include numeric characters?");
   specialConf = confirm("Do you want to include special characters?");
-
     if (upperConf && numericConf  && specialConf) {
       return combineAll;
     } else if (upperConf && numericConf && !specialConf) {
@@ -59,27 +57,21 @@ function characterChoice() {
     }
 };
 
-// Combine characterLength and gcharacterChoice Functions
+// Combine characterLength and characterChoice Functions
 function generatePassword() {
   let a = countMessage;
   let b = characterChoice();
   let passwordNew = "";
  
   for(let i=0; i<a; i++) {
-	
-   //Taking Input from user
    passwordNew = passwordNew + b.charAt(Math.floor(Math.random() * b.length));
-
- /*passwordNew = [].concat(a, b).sort(() => Math.random() - 0.5);*/
   }
-  console.log(passwordNew)
-  console.log(countMessage)
   return passwordNew;
 };
   
 // Write password to the #password input
 function writePassword() {
-    let password = generatePassword();
-    let passwordText = document.querySelector("#password");
-    passwordText.value = password;
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
+  passwordText.value = password;
 };
