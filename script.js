@@ -1,22 +1,18 @@
 // Global Variables
-let upperCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let lowerCharacter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let numericCharacter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-let specialCharacter = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
+let lowerCharacter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"].join('');
+let upperCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"].join('');
+let numericCharacter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].join('');
+let specialCharacter = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'].join('');
 let generateBtn = document.querySelector("#generate");
-let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter).join('');
-let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter).join('');
-let combineUpper = lowerCharacter.concat(upperCharacter).join('');
-let combineNumeric = lowerCharacter.concat(numericCharacter).join('');
-let combineSpecial = lowerCharacter.concat(specialCharacter).join('');
-let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter).join('');
-let upperNumeric = upperCharacter.concat(numericCharacter).join('');
-let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter).join('');
-let upper = upperCharacter.join('');
-let lower = lowerCharacter.join('');
-let numeric = numericCharacter.join('');
-let special = specialCharacter.join('');
-let numericSpecial = numericCharacter.concat(specialCharacter).join('');  
+let numericSpecial = numericCharacter.concat(specialCharacter);  
+let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
+let combineUpperNumeric = lowerCharacter.concat(upperCharacter, numericCharacter);
+let combineUpper = lowerCharacter.concat(upperCharacter);
+let combineNumeric = lowerCharacter.concat(numericCharacter);
+let combineSpecial = lowerCharacter.concat(specialCharacter);
+let combineNumericSpecial = lowerCharacter.concat(numericCharacter, specialCharacter);
+let upperNumeric = upperCharacter.concat(numericCharacter);
+let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter);
 let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
@@ -48,14 +44,10 @@ function characterChoice() {
   numericConf = confirm("Do you want to include numeric characters?");
   specialConf = confirm("Do you want to include special characters?");
   
-    if (lowerConf && upperConf && numericConf  && specialConf) {
-      return combineAll + alert("All characters selected.");
-    } else if (lowerConf && upperConf && numericConf && !specialConf) {
+      if (lowerConf && upperConf && numericConf && !specialConf) {
       return combineUpperNumeric + alert("Lowercase, uppercase, and numeric characters seleced.");
     } else if (lowerConf && upperConf && !numericConf && !specialConf) {
       return combineUpper + alert("Lowercase and uppercase characters selected.");
-    } else if (lowerConf && !upperConf && !numericConf && !specialConf) {
-      return lower + alert("Lowercase characters selected.");
     } else if (lowerConf && !upperConf && !numericConf && specialConf) {
       return combineSpecial + alert("Lowercase and special characters selected.");
     } else if (lowerConf && !upperConf && numericConf && specialConf) {
@@ -64,18 +56,22 @@ function characterChoice() {
       return combineNumeric + alert("Lowercase and numeric characters selected.");
     } else if (!lowerConf && upperConf && numericConf && !specialConf) {
       return upperNumeric + alert("Uppercase and numeric characters selected.");
-    } else if (!lowerConf && upperConf && !numericConf && !specialConf) {
-      return upper + alert("Uppercase characters selected.");
-    } else if (!lowerConf && !upperConf && !numericConf && specialConf) {
-      return special + alert("Special characters selected.");
     } else if (!lowerConf && !upperConf && numericConf && specialConf) {
-      return numericSpecial + alert("Numeric and special characters selected.");
-    } else if (!lowerConf && !upperConf && numericConf && !specialConf) {
-      return numeric + alert("Numeric characters selected.");  
+      return numericSpecial + alert("Numeric and special characters selected."); 
     } else if (!lowerConf && upperConf && numericConf && specialConf) {
       return upperNumericSpecial + alert("Uppercase, numeric, and special characters selected."); 
-    } else { (!lowerConf && !upperConf && !numericConf && !specialConf) 
-       return noCharacter + alert("Must select at least one group of characters.");
+    } else if (!lowerConf && !upperConf && !numericConf && !specialConf) {
+      return noCharacter + alert("Must select at least one group of characters.");
+    } else if (lowerConf && upperConf && numericConf  && specialConf) {
+      return combineAll + alert("All characters selected.");
+    } else if (lowerConf && !upperConf && !numericConf && !specialConf) {
+      return lowerCharacter + alert("Lowercase characters selected.");
+    } else if (!lowerConf && upperConf && !numericConf && !specialConf) {
+      return upperCharacter + alert("Uppercase characters selected.");
+    } else if (!lowerConf && !upperConf && numericConf && !specialConf) {
+      return numericCharacter + alert("Numeric characters selected."); 
+    } else if (!lowerConf && !upperConf && !numericConf && specialConf) {
+      return specialCharacter + alert("Special characters selected.");
     }
 };
 
