@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--------------------- Head Starts Here--------------------->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="assets/images/lock.png" type="image/x-icon">
+    <title>Secure Password Generator</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   </head>
+  <!--------------------- Body Starts Here--------------------->
   <body>
     <div class="wrapper">
+      <!--------------------- Header Starts Here--------------------->
       <header>
         <h1>Secure Password Generator</h1>
       </header>
+      <!--------------------- Generator Card Starts Here--------------------->
       <div class="card">
         <div class="card-header">
           <h2>Generate a Secure Password</h2>
         </div>
+        <!--------------------- Text Area Starts Here--------------------->
         <div class="card-body">
           <textarea
             readonly
@@ -26,11 +32,12 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
+        <!--------------------- Card Button Starts Here--------------------->
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
