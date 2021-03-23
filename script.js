@@ -65,17 +65,16 @@ function generatePassword() {
   let b = characterChoice();
   let passwordNew = "";
  
-  for(let i=0; i<b.length; i++) {
+  for(let i=0; i<a; i++) {
 	
    //Taking Input from user
-   passwordNew = b.charAt(Math.floor(Math.random() * b.length));
+   passwordNew = passwordNew + b.charAt(Math.floor(Math.random() * b.length));
 
  /*passwordNew = [].concat(a, b).sort(() => Math.random() - 0.5);*/
-
-  console.log(passwordNew)
-  return passwordNew;
   }
-
+  console.log(passwordNew)
+  console.log(countMessage)
+  return passwordNew;
 };
   
 // Write password to the #password input
