@@ -1,9 +1,10 @@
+
 // Global Variables
 let generateBtn = document.querySelector("#generate");
-let lowerCharacter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"].join('');
-let upperCharacter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"].join('');
-let numericCharacter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].join('');
-let specialCharacter = ['!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'].join('');
+let lowerCharacter = "abcdefghijklmnopqrstuvwxyz";
+let upperCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let numericCharacter = "0123456789"
+let specialCharacter = "!#$%&()*+-.,/:;<=>?@[]^_`{|}~]"
 let countMessage = "";
 let lowerConf = ""; 
 let upperConf = "";
@@ -47,37 +48,53 @@ function characterChoice() {
   let upperNumericSpecial = upperCharacter.concat(numericCharacter, specialCharacter);
   
       if (lowerConf && upperConf && numericConf && !specialConf) {
-      return combineUpperNumeric + alert("Lowercase, uppercase, and numeric characters seleced.");
+      alert("Lowercase, uppercase, and numeric characters seleced.");
+      return combineUpperNumeric;
     } else if (lowerConf && upperConf && !numericConf && !specialConf) {
-      return combineUpper + alert("Lowercase and uppercase characters selected.");
+      alert("Lowercase and uppercase characters selected.");
+      return combineUpper;
     } else if (lowerConf && !upperConf && !numericConf && specialConf) {
-      return combineSpecial + alert("Lowercase and special characters selected.");
+      alert("Lowercase and special characters selected.");
+      return combineSpecial;
     } else if (lowerConf && !upperConf && numericConf && specialConf) {
-      return combineNumericSpecial + alert("Lowercase, numeric, and special characters selected.");
+      alert("Lowercase, numeric, and special characters selected.");
+      return combineNumericSpecial;
     } else if (lowerConf && !upperConf && numericConf && !specialConf) {
-      return combineNumeric + alert("Lowercase and numeric characters selected.");
+      alert("Lowercase and numeric characters selected.");
+      return combineNumeric;
     } else if (!lowerConf && upperConf && numericConf && !specialConf) {
-      return upperNumeric + alert("Uppercase and numeric characters selected.");
+      alert("Uppercase and numeric characters selected.");
+      return upperNumeric;
     } else if (!lowerConf && !upperConf && numericConf && specialConf) {
-      return numericSpecial + alert("Numeric and special characters selected."); 
+      alert("Numeric and special characters selected."); 
+      return numericSpecial;
     } else if (!lowerConf && upperConf && numericConf && specialConf) {
-      return upperNumericSpecial + alert("Uppercase, numeric, and special characters selected."); 
+      alert("Uppercase, numeric, and special characters selected."); 
+      return upperNumericSpecial;
     } else if (!lowerConf && !upperConf && !numericConf && !specialConf) {
-      return noCharacter + alert("Must select at least one group of characters.");
+      alert("Must select at least one group of characters.");
+      return noCharacter;
     } else if (lowerConf && upperConf && numericConf  && specialConf) {
-      return combineAll + alert("All characters selected.");
+      alert("All characters selected.");
+      return combineAll;
     } else if (lowerConf && !upperConf && !numericConf && !specialConf) {
-      return lowerCharacter + alert("Lowercase characters selected.");
+      alert("Lowercase characters selected.");
+      return lowerCharacter;
     } else if (!lowerConf && upperConf && !numericConf && !specialConf) {
-      return upperCharacter + alert("Uppercase characters selected.");
+      alert("Uppercase characters selected.");
+      return upperCharacter;
     } else if (!lowerConf && !upperConf && numericConf && !specialConf) {
-      return numericCharacter + alert("Numeric characters selected."); 
+      alert("Numeric characters selected.");
+      return numericCharacter; 
     } else if (!lowerConf && !upperConf && !numericConf && specialConf) {
-      return specialCharacter + alert("Special characters selected.");
+      alert("Special characters selected.");
+      return specialCharacter;
     } else if (!lowerConf && upperConf && !numericConf && specialConf) {
-      return upperSpecial + alert("Special characters selected.");
+      alert("Special characters selected.");
+      return upperSpecial;
     } else if (lowerConf && upperConf && !numericConf && specialConf) {
-      return combineUpperSpecial + alert("Special characters selected.");
+      alert("Special characters selected.");
+      return combineUpperSpecial;
     }
 };
 
@@ -85,7 +102,7 @@ function characterChoice() {
 function generatePassword() {
   let a = countMessage;
   let b = characterChoice();
-  let passwordNew = [];
+  let passwordNew = "";
  
   for(let i=0; i<a; i++) {
    passwordNew = passwordNew + b.charAt(Math.floor(Math.random() * b.length));
