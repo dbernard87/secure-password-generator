@@ -1,5 +1,6 @@
 // Global Variables
 let generateBtn = document.querySelector("#generate");
+let clipBtn = document.querySelector("#copyBtn");
 let lowerCharacter = "abcdefghijklmnopqrstuvwxyz";
 let upperCharacter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let numericCharacter = "0123456789";
@@ -14,17 +15,23 @@ let noCharacter = "";
 // Global Event Listeners
 generateBtn.addEventListener("click", characterLength); 
 generateBtn.addEventListener("click", writePassword); 
+clipBtn.addEventListener("click", copyIcon); 
 
 // characterLength Function to choose length of password
 function characterLength() {
   countMessage = prompt("Choose amount of characters between 8 and 128.");
+    // If else statement to control the length of the users input
+    if (countMessage == null) {
+      alert("I'm sorry, Dave. I'm afraid I can't do that.");
+      return characterLength();
+    }
     if (countMessage < 8) {
-        alert("Must have at least 8 characters.");
-        characterLength();
-      } else if (countMessage > 128) {
-        alert("Must have no more than 128 characters.");
-        characterLength();
-      }
+      alert("Must have at least 8 characters.");
+      characterLength();
+    } else if (countMessage > 128) {
+      alert("Must have no more than 128 characters.");
+      characterLength();
+    }
       return countMessage;
 }
 
@@ -116,4 +123,13 @@ function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
   passwordText.value = password;
+}
+
+// Copy function to copy password to clipboard
+function copyIcon() {
+  let copyText = document.querySelector("#password");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+  document.execCommand("copy");
+  alert("Password copied to clipboard.");
 }

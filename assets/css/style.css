@@ -1,9 +1,11 @@
+/*---------------------- Global Settings ----------------------*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/*---------------------- Main Body Settings ----------------------*/
 html,
 body,
 .wrapper {
@@ -19,6 +21,9 @@ body {
   background-blend-mode: overlay;
   background-image: url(/Users/dbern/Desktop/Git/secure-password-generator/assets/images/pexels-markus-spiske-330771.jpg);
   background-size: cover;
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 
 .wrapper {
@@ -27,16 +32,17 @@ body {
   padding-right: 20px;
 }
 
+/*----------------------- Header Settings -----------------------*/
 header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
   color: hsl(93, 100%, 71%);
   font-size: 2.5em;
+  flex: 1;
 }
 
+/*----------------------- Card Settings -----------------------*/
 .card {
-  background-color: hsl(0, 0%, 18%);
+  background-color: rgba(41, 41, 41, 0.9);
   border-radius: 7px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
@@ -45,6 +51,11 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  flex: 1;
+}
+
+.card-header {
+  flex: 1;
 }
 
 .card-header h2 {
@@ -55,7 +66,7 @@ header {
 
 .card-header::after {
   content: " ";
-  display: block;
+  display: flex;
   width: 100%;
   background-color: #1d1d1d;
   height: 2px;
@@ -65,24 +76,35 @@ header {
   min-height: 100px;
 }
 
+textarea {
+  background-color: rgb(21, 21, 21);
+  color: hsl(93, 100%, 71%);
+}
+
 .card-footer {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
 }
 
 .card-footer::before {
   content: " ";
-  display: block;
-  width: 100%;
+  display: flex;
+  width: 60%;
   background-color: #1d1d1d;;
   height: 2px;
+  margin: auto;
 }
 
 .card-footer::after {
   content: " ";
-  display: block;
+  display: flex;
   clear: both;
 }
 
+/*----------------------- Card Button Settings -----------------------*/
 .btn {
   border: none;
   background-color: hsl(93, 100%, 71%);
@@ -90,19 +112,17 @@ header {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 18%);
-  display: inline-block;
-  font-size: 22px;
   line-height: 22px;
   margin: 16px 16px 16px 20px;
   padding: 21px 25px 16px 25px;
   text-align: center;
   cursor: pointer;
   font-family: 'Bebas Neue', cursive;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .btn:hover {
-  background-color: hsl(93, 100%, 64%);
+  background-color: hsl(93, 100%, 62%);;
 }
 
 button[disabled] {
@@ -114,6 +134,7 @@ button[disabled] {
   float: right;
 }
 
+/*----------------------- Text Area Settings -----------------------*/
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -135,20 +156,72 @@ button[disabled] {
   overflow: hidden;
 }
 
+/*----------------------- Media Queries Start Here -----------------------*/
+
+/*----------------------- Media Query up to 860px -----------------------*/
+@media (max-width: 860px) {
+  header h1 {
+    font-size: 3.5rem;
+    }
+    .btn {
+      font-size: 1.5rem;
+    }
+    .card-footer {
+      width: 70%;
+    }
+  }
+
+/*----------------------- Media Query up to 690px -----------------------*/
 @media (max-width: 690px) {
+  header h1 {
+    font-size: 3rem;
+    }
   .btn {
-    font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px;
+    font-size: 1.5rem;
+    line-height: 30px;
   }
 
   #password {
     font-size: 1rem;
   }
+  .card-header h2 {
+    font-size: 2.5rem;
+  }
+  .card-footer {
+    width: 70%;
+  }
 }
 
-@media (max-width: 500px) {
+/*----------------------- Media Query up to 500px -----------------------*/
+@media (max-width: 450px) {
+  header h1 {
+    font-size: 3rem;
+    }
+  .card-header h2 {
+    font-size: 2.5rem;
+  }
+  .card-footer {
+    width: 70%;
+  }
+}
+
+/*----------------------- Media Query up to 375px -----------------------*/
+@media (max-width: 375px) {
+  header h1 {
+  font-size: 3rem;
+  }
   .btn {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
+  .card-header h2 {
+    font-size: 2rem;
+  }
+  .card-footer {
+    width: 70%;
+    margin-right: 40px;
   }
 }
