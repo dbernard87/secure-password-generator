@@ -131,5 +131,4 @@ function copyIcon() {
   copyText.select();
   copyText.setSelectionRange(0, 99999); 
   document.execCommand("copy");
-  alert("Password copied to clipboard.");
 }
