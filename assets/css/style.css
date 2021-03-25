@@ -18,7 +18,7 @@ body,
 body {
   background-color: rgba(36, 36, 36, 0.4);
   background-blend-mode: overlay;
-  background-image: url(/Users/dbern/Desktop/Git/secure-password-generator/assets/images/pexels-markus-spiske-330771.jpg);
+  background-image: url(https://github.com/dbernard87/secure-password-generator/blob/master/assets/images/pexels-markus-spiske-330771.jpg?raw=true);
   background-size: cover;
   display: flex;
   margin: auto;
