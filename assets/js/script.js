@@ -13,13 +13,17 @@ let specialConf = "";
 let noCharacter = "";
 
 // Global Event Listeners
+generateBtn.addEventListener("click", firstNotice); 
 generateBtn.addEventListener("click", characterLength); 
 generateBtn.addEventListener("click", writePassword); 
 clipBtn.addEventListener("click", copyIcon); 
 
+function firstNotice() {
+  alert("Welcome to Secure Password Generator.\n\nYou will be shown a series a prompts to generate a random secure password. You must choose a password between 8 and 128 characters in length. You must also choose at least one set of characters. It is recommended that you choose all four character types for a maximum strength password.\n\nOnce your password is generated, click the Copy Password button to copy your new password to the clipboard.\n\nPlease be sure to write down your new password and store it in a safe place.")
+}
+
 // characterLength Function to choose length of password
 function characterLength() {
-  alert("Welcome to Secure Password Generator.\n\nYou will be shown a series a prompts to generate a random secure password. You must choose a password between 8 and 128 characters in length. You must also choose at least one set of characters. It is recommended that you choose all four character types for a maximum strength password.\n\nOnce your password is generated, click the Copy Password button to copy your new password to the clipboard.\n\nPlease be sure to write down your new password and store it in a safe place.")
   countMessage = prompt("Choose amount of characters between 8 and 128.");
     // If else statement to control the length of the users input
     if (countMessage == null) {
