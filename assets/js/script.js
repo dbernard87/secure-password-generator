@@ -44,9 +44,21 @@ function characterLength() {
 function characterChoice() {
   // Character prompt questions
   lowerConf = confirm("Do you want to include lowercase characters?");
+  if (lowerConf) {
+    alert("Lowercase characters selected.");
+  } 
   upperConf = confirm("Do you want to include uppercase characters?");
+  if (upperConf) {
+    alert("Uppercase characters selected.");
+  }
   numericConf = confirm("Do you want to include numeric characters?");
+  if (numericConf) {
+    alert("Numeric characters selected.");
+  }
   specialConf = confirm("Do you want to include special characters?");
+  if (specialConf) {
+    alert("Special characters selected.");
+  }
   // Concatenated character strings for if else statement
   let numericSpecial = numericCharacter.concat(specialCharacter);  
   let combineAll = lowerCharacter.concat(upperCharacter, numericCharacter, specialCharacter);
@@ -86,7 +98,7 @@ function characterChoice() {
       return upperNumericSpecial;
     } else if (!lowerConf && !upperConf && !numericConf && !specialConf) {
       alert("Must select at least one group of characters.");
-      return noCharacter;
+      return characterChoice();
     } else if (lowerConf && upperConf && numericConf  && specialConf) {
       alert("All characters selected.");
       return combineAll;
